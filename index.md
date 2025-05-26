@@ -1,6 +1,8 @@
 ---
 layout: home
 title: Pomysły o programowaniu
+description: "To jest opis tego materiału"
+permalink: /
 ---
 
 <div id="home">
