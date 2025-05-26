@@ -3,6 +3,7 @@ layout: home
 title: Pomysły o programowaniu
 description: "To jest opis tego materiału"
 permalink: /
+nav_order: 1
 ---
 
 <div id="home">
