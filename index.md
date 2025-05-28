@@ -7,6 +7,8 @@ nav_order: 1
 ---
 
 <div id="home">
+  <p>Poniżej znajduje się seria moich przemyśleń na temat różnych rozwiązań pojawiających się w świecie IT.</p>
+
   <h1>Publikacje</h1>
   <ul class="posts">
     {% for post in site.posts %}
