@@ -82,6 +82,15 @@ function buildtoc() {
   return $dict;
 }
 
+function urlTo($what) {
+  switch($what) {
+  case 'nvchad': return "https://nvchad.com/";
+  case 'neovim': return "https://neovim.io/";
+  default:
+    die("No URL to $what");
+  }
+}
+
 function linkTo($name) {
   $r = loadMeta($name); 
   ob_start();
@@ -94,8 +103,8 @@ function linkTo($name) {
 function intro() {
   ob_start();
 ?>
-<div>
-<h1>Writing about good-old-software, how it was built and how it works.</h1>
+<div class="intro">
+<h3>Writing about good-old-software, how it was built and how it works.</h3>
 </div>
 <?php
   return ob_get_clean();
@@ -106,7 +115,7 @@ function heading() {
   $m = meta();
 ?>
 <div class="heading">
-<h2><?=$m['title']?></h2>
+<h1><?=$m['title']?></h1>
 </div>
 <?php
   return ob_get_clean();

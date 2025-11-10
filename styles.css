@@ -1,0 +1,45 @@
+body {
+  background-color: #0d0c1d;
+  color: #a69cac;
+  font-family: vendsans;
+  font-size: 1.3em;
+  line-height:1.8;
+}
+
+#main {
+  min-width:800px;
+  max-width:50%;
+  margin: auto;
+}
+
+.section {
+  padding: 30px;
+  outline: 3px solid #474973;
+}
+
+.section h1 {
+  margin-top:0px;
+}
+
+@font-face {
+  font-family: vendsans;
+  src: url(static/VendSans-Regular.ttf)
+}
+
+.intro h3{
+  color: #474973;
+}
+
+h1, h2, h3 {
+  color: #f1dac4;
+}
+
+a, a:link, a:visited, a:active{
+  color: #a69cac;
+}
+
+a:hover {
+  color: #f1dac4;
+}
+
+

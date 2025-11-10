@@ -3,7 +3,9 @@
 C="podman run -v $(pwd):$(pwd) -w $(pwd) --rm -ti php:8.2-cli php"
 
 rm *.html
+rm styles.css
 $C index.php > index.html
+$C styles.css.php > styles.css
 
 for ART in $(find *.art.php) ; do 
   DST=$(echo $ART | sed -e s/art\\.php/html/)
