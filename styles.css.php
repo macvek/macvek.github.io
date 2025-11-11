@@ -7,9 +7,10 @@ if ("a" == $pallete) {
   $C3 = "#474973";
   $C4 = "#a69cac";
   $C5 = "#f1dac4";
+  $C6 = "#E000c8";
 }
 
-$LINK = $C4;
+$LINK = $C6;
 $LINK_H = $C5;
 $BG = $C1;
 $FG = $C4;

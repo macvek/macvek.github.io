@@ -9,6 +9,7 @@
 
 <div class="section">
 <?= heading() ?>
+<h3>Why to get into vim?</h3>
 <p>
 I have a mixed felling about vim. In my regular work I use neovim. After few weeks I got into all (I guess) relevant keybindings and I can say - it works for me.</p>
 
@@ -24,7 +25,59 @@ The extension management is really super easy in comparison to what I get for vi
 
 <p>
 I figured that as it already works for me for 95%, I should get into a source code and try to understand concepts behind how vim/neovim is designed and try to solve the mistery of where stuff should be,
-in order to modify it / add something or disable something without breaking the whole setup.
+in order to modify it / add something or disable something without breaking the whole setup.</p>
+
+<h3>Setup</h3>
+<p>
+First things first. To get started into source code, it must be pulled from somewhere. 
+Vim is hosted on github: <?=hrefTo('git-vim') ?>.
+
+<p>
+Before getting into source code, there are:
+<ul>
+<li><?=hrefTo('vim')?> - an official vim website </li>
+<li><?=hrefTo('vim-manual')?> - here jump down to 'Tuning Vim' section for vim-script tutorial.</li>
+</ul>
+
+</p>
+
+<h3>Building it</h3>
+<p>
+Vim is using autotools setup, which in a nutshell requires calling 
+<span class="code-bash">./configure</span> and <span class="code-bash">make</span>
+<p>
+The resulting binary lands in <span class="code-path">src/vim</span>. I want to focus on an isolated environment, so the task is to setup it in a way it only search for files in current repository. Therefore just after compilation, I check <span class="code-bash">git status</span>
+to make sure <span class="code-path">.gitignore</span> is correctly set and so subsequest changes will track all my experimenting with the code.
+<p>
+To separate changes, I create a branch 'local' and so I will have all my play tracked.
+<p>
+Next is to have development environment along source code and to run vim from custom location. There is a special environment variable called VIMINIT.
+<p>
+VIMINIT is a command which will be executed as a first command during vim boot. I will use it to load commands from my custom folder.
+<p>
+VIMRUNTIME is another environment variable which I need to tune, 
+so vim will use a <i>runtime</i> folder from a source code.
+Otherwise it try to load content from <span class="code-path">/usr/local/vim</span>.
+
+<p>
+Last step is to create a <span class="code-path">local</span> folder and place there a an empty <span class="code-path">vimrc</span> file.
+<p>
+My command looks now like this: <span class="code-bash">VIMINIT="source $(pwd)/local/vimrc" VIMRUNTIME=$(pwd)/runtime src/vim</span>. 
+I execute from a source code directory. Vim starts with a default prompt.
+To test if local file was correctly loaded, I simply insert incorrect command, literally rubish like asd123asd123 and check if it starts with
+an error.
+<p>
+Once I confirmed that both VIMINIT nad VIMRUNTIME are correctly loaded, I pack it all into a <span class="code-path">local/vim</span> script:
+<pre class="code-bash">
+#!/bin/sh
+export VIMINIT="source $(pwd)/local/vimrc"
+export VIMRUNTIME="$(pwd)/runtime"
+exec $(pwd)/src/vim
+</pre>
+
+which from now on will be my script to start vim during development.
+<p>
+
 <hr/>
 (work in progress)
 </div>

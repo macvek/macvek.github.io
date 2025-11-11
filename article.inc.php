@@ -86,9 +86,17 @@ function urlTo($what) {
   switch($what) {
   case 'nvchad': return "https://nvchad.com/";
   case 'neovim': return "https://neovim.io/";
+  case 'git-vim': return "https://github.com/vim/vim.git";
+  case 'vim': return 'https://www.vim.org';
+  case 'vim-manual': return 'https://vimdoc.sourceforge.net/htmldoc/usr_toc.html';
   default:
-    die("No URL to $what");
+    return "!!!!!!!! No URL to $what";
   }
+}
+
+function hrefTo($what) {
+  $lnk = urlTo($what);
+  return "<a href=\"$lnk\">$lnk</a>";
 }
 
 function linkTo($name) {
