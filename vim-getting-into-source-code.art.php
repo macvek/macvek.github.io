@@ -72,11 +72,30 @@ Once I confirmed that both VIMINIT nad VIMRUNTIME are correctly loaded, I pack i
 #!/bin/sh
 export VIMINIT="source $(pwd)/local/vimrc"
 export VIMRUNTIME="$(pwd)/runtime"
-exec $(pwd)/src/vim
+exec $(pwd)/src/vim $@  
 </pre>
 
 which from now on will be my script to start vim during development.
+
+<h3>Trying to be first timer again</h3>
+
 <p>
+Now as I wanted to have a full recap of what vim offers, I decided to try to behave as a first timer... meaning I followed hints and typed F1 for help.
+Experience was strange, as I already knew how to navigate, switch windows etc. Still next few hours I've spent on trying to recap all shortcuts 
+and to figure how little piece of functionalities I actually use every day.
+<p>
+One of the things I totally forgot how to do, was all about macros and handling copy/paste, which I always had replaced with clipboard provider.
+<p><b>note:</b> at this point I started writing separate text with 'all vim conventions' to gather all the conventions vim has
+<p>
+
+During browsing of a help / tutorial I've found an example vimrc file under <span class="code-path">runtime/vimrc-example.vim</span>. 
+I've copied it to my <span class="code-path">local/vimrc</span> and this was my starting point.
+<p>
+<i>Next opening of vim shows that it is sourced by displaying help with colored text + mouse enabled</i>
+
+<p>
+
+
 
 <hr/>
 (work in progress)

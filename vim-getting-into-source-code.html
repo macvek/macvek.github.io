@@ -13,6 +13,7 @@
   <ul>
   <li><a href="index.html"><i>home</i></a></li>
     <li><a href="vim-getting-into-source-code.html">VIM - getting into source code</a> <i>10.11.2025</i></li>
+    <li><a href="vim-all-conventions.html">VIM - all conventions</a> <i>10.11.2025</i></li>
   </ul>
 </div>
 
@@ -51,6 +52,63 @@ Before getting into source code, there are:
 </ul>
 
 </p>
+
+<h3>Building it</h3>
+<p>
+Vim is using autotools setup, which in a nutshell requires calling 
+<span class="code-bash">./configure</span> and <span class="code-bash">make</span>
+<p>
+The resulting binary lands in <span class="code-path">src/vim</span>. I want to focus on an isolated environment, so the task is to setup it in a way it only search for files in current repository. Therefore just after compilation, I check <span class="code-bash">git status</span>
+to make sure <span class="code-path">.gitignore</span> is correctly set and so subsequest changes will track all my experimenting with the code.
+<p>
+To separate changes, I create a branch 'local' and so I will have all my play tracked.
+<p>
+Next is to have development environment along source code and to run vim from custom location. There is a special environment variable called VIMINIT.
+<p>
+VIMINIT is a command which will be executed as a first command during vim boot. I will use it to load commands from my custom folder.
+<p>
+VIMRUNTIME is another environment variable which I need to tune, 
+so vim will use a <i>runtime</i> folder from a source code.
+Otherwise it try to load content from <span class="code-path">/usr/local/vim</span>.
+
+<p>
+Last step is to create a <span class="code-path">local</span> folder and place there a an empty <span class="code-path">vimrc</span> file.
+<p>
+My command looks now like this: <span class="code-bash">VIMINIT="source $(pwd)/local/vimrc" VIMRUNTIME=$(pwd)/runtime src/vim</span>. 
+I execute from a source code directory. Vim starts with a default prompt.
+To test if local file was correctly loaded, I simply insert incorrect command, literally rubish like asd123asd123 and check if it starts with
+an error.
+<p>
+Once I confirmed that both VIMINIT nad VIMRUNTIME are correctly loaded, I pack it all into a <span class="code-path">local/vim</span> script:
+<pre class="code-bash">
+#!/bin/sh
+export VIMINIT="source $(pwd)/local/vimrc"
+export VIMRUNTIME="$(pwd)/runtime"
+exec $(pwd)/src/vim $@  
+</pre>
+
+which from now on will be my script to start vim during development.
+
+<h3>Trying to be first timer again</h3>
+
+<p>
+Now as I wanted to have a full recap of what vim offers, I decided to try to behave as a first timer... meaning I followed hints and typed F1 for help.
+Experience was strange, as I already knew how to navigate, switch windows etc. Still next few hours I've spent on trying to recap all shortcuts 
+and to figure how little piece of functionalities I actually use every day.
+<p>
+One of the things I totally forgot how to do, was all about macros and handling copy/paste, which I always had replaced with clipboard provider.
+<p><b>note:</b> at this point I started writing separate text with 'all vim conventions' to gather all the conventions vim has
+<p>
+
+During browsing of a help / tutorial I've found an example vimrc file under <span class="code-path">runtime/vimrc-example.vim</span>. 
+I've copied it to my <span class="code-path">local/vimrc</span> and this was my starting point.
+<p>
+<i>Next opening of vim shows that it is sourced by displaying help with colored text + mouse enabled</i>
+
+<p>
+
+
+
 <hr/>
 (work in progress)
 </div>
