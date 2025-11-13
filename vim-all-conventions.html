@@ -28,7 +28,13 @@ gather them all into a single place.
 
 <h3>Tips</h3>
 <ul>
+<li>:help index - open help file with all the commands</li>
 <li>/ - to start searching; then n - to move to next; shift+n - to move to prev; type :noh<ENTER> - to turn off highlighted text
+<ul>
+<li>hover over a <word> and type * - it will behave as typing :/<word>
+<li>check :set ignorecase? for making case insensitive searches</li>
+<li>set insearch - to highlight text while writing - also TAB works as autocomplete</li>
+</ul>
 <li>if you have multiple windows, <span class="code-key">CTRL+W T</span> will place current windows into separate tab</li>
 <li><span class="code-cmd">:tab help</span> to have a full page help in a different tab</li>
 <li>:set SOMETHING? - will answer SOMETHING or noSOMETHING; like :set number?</li>
@@ -37,28 +43,45 @@ gather them all into a single place.
 <li>:scriptnames - lists ALL the sourced scripts</li>
 <li>CTRL + C or ESC - back to NORMAL mode from INSERT mode</li>
 <li>CTRL + O - back to NORMAL - execute command (i.e. type :something) - get back to INSERT</li>
+<ul>
+  <li>CTRL+I / CTRL+O (figure I/O are next to each other on keyboard) shuffles forward/backward via cursor movement</li>
+  <li>CTRL+I = &lt;TAB&gt; ; CTRL+O = &lt;SHIFT+TAB&gt; 
+</ul>
 <li>CTRL + D / CTRL + T - shift line by 1 tab left/right</li>
 <li>:r <filename> - insert content of file name at the cursor position; try <span class="code-cmd">:r /etc/hosts</span> </li>
 <li>:r! <cmd> - insert content of executed cmd at the cursor position; try <span class="code-cmd">:r! ls /</span></li>
+<li>:e - reloads initial version of a file (i.e. :earlier)</li>
+<li>while selected in visual mode, run !<cmd> to filter lines via <cmd> , try sequence:
+  <ul>
+    <li>:r! ls / &lt;ENTER&gt; V (to select lines) :! grep lib &lt;ENTER&gt; </li>
+    <li>should leave you with line containing only 'lib'</li>
+  </ul>
+</li>
+<li>z<ENTER> - in NORMAL - redraws window with current line near top; check 'set scrolloff?' for number of line from top</li>
 </ul>
 
 <h3>Navigation</h3>
 <ul>
+<li><NUMBER>G - jump to line <NUMBER></li>
 <li>ESC - jump to normal mode</li>
 <li>CTRL + [ - the same behavior as hitting ESC key</li>
 <li>:(colon) - start typing command (from NORMAL mode)</li>
 <li>CTRL + ] - follow link</li>
 <li>CTRL + O - move back to previous cursor position</li>
-<li>CTRL + T - move back on TAG stack (it will jump at most to your first CTRL+] ) 
-<li>once mouse enabled <i>:set mouse=a</i> ; double click follows link; CTRL+right click - move back
-<li>CTRL + D - in middle of typing command, to show possible matching values (similar to using TAB)
+<li>CTRL + T - move back on TAG stack (it will jump at most to your first CTRL+] )</li>
+<li>once mouse enabled <i>:set mouse=a</i> ; double click follows link; CTRL+right click - move back</li>
+<li>CTRL + D - in middle of typing command, to show possible matching values (similar to using TAB)</li>
+<li>:cnext / :copen - shuffle through errors/tooltips</li>
+<li>CTRL+D(down) - CTRL+U(up) - scrolling - better than pageup/pagedown as it makes it less jumpy</li>
 </ul>
 
 <h3>Editing (in normal mode)</h3>
 <ul>
 <li>x - delete a single character</li>
-<li>$ - jump to end of line</li>
-<li>^ - jump to start of line</li>
+<li>0 - jump to start of a line<li>
+<li>$ - jump to end of a line</li>
+<li>^ - jump to first character of a line</li>
+<li>% - jump to closure of paratheses like between { } or ( )
 <li>J - delete line ending - i.e join lines</li>
 <li>u - undo</li>
 <li>CTRL+R - redo</li> 
