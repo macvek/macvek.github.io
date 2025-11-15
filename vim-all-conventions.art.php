@@ -21,7 +21,7 @@ gather them all into a single place.
 <ul>
 <li>hover over a <word> and type * - it will behave as typing :/<word>
 <li>check :set ignorecase? for making case insensitive searches</li>
-<li>set insearch - to highlight text while writing - also TAB works as autocomplete</li>
+<li>set insearch - to highlight text while  - jump to mark with a last change</li>riting - also TAB works as autocomplete</li>
 </ul>
 <li>if you have multiple windows, <span class="code-key">CTRL+W T</span> will place current windows into separate tab</li>
 <li><span class="code-cmd">:tab help</span> to have a full page help in a different tab</li>
@@ -52,6 +52,10 @@ gather them all into a single place.
 <li>:h usr_05.txt -- few words about bundled plugins + :h local-additions + :h load-plugins + :h vimball + :h getscript</li>a
 <li>ALL the options are visible under :options ; there while hovering over option + ENTER you can toggle on/off then<li>
 <li>:set list - toggle whitespace characters</li>
+<li>:3new - 3 - means the number of lines; :new is a command for new window, it works the same for :split filename</li>
+<li>about macros - usr_10.txt</li>
+<li>q: - interactive history</li>
+<li>fold: zo/zc/zf - create</li>
 </ul>
 
 <h3>Navigation</h3>
@@ -62,12 +66,17 @@ gather them all into a single place.
 <li>:(colon) - start typing command (from NORMAL mode)</li>
 <li>CTRL + ] - follow link</li>
 <li>CTRL + O - move back to previous cursor position</li>
-<li>CTRL + T - move back on TAG stack (it will jump at most to your first CTRL+] )</li>
+<li>CTRL + T - move back on TAG stack (it will jump at most to your first CTRL+] ), check tags stack using :tags</li>
 <li>once mouse enabled <i>:set mouse=a</i> ; double click follows link; CTRL+right click - move back</li>
 <li>CTRL + D - in middle of typing command, to show possible matching values (similar to using TAB)</li>
 <li>:cnext / :copen - shuffle through errors/tooltips</li>
 <li>CTRL+D(down) - CTRL+U(up) - scrolling - better than pageup/pagedown as it makes it less jumpy</li>
-<li>in NORMAL mode - m<letter> sets mark; jump to mark is by `<letter> 
+<li>in NORMAL mode - m&lt;letter&gt; sets mark; jump to mark is by `&lt;letter&gt;</li>
+<li>upper-case letters are global marks working across files</li>
+<li>`. - jump to mark with a last change</li>
+<li>:noremap ; :unmap; <Nop> - noremap, will not use values as aliases; unmap - clears; <Nop> is for empty op</li>
+<li>:command - list all the commands</li>
+<li>An autocommand is a command that is executed automatically in response to some event</li>
 </ul>
 
 <h3>Editing (in normal mode)</h3>

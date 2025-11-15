@@ -33,19 +33,20 @@ gather them all into a single place.
 <ul>
 <li>hover over a <word> and type * - it will behave as typing :/<word>
 <li>check :set ignorecase? for making case insensitive searches</li>
-<li>set insearch - to highlight text while writing - also TAB works as autocomplete</li>
+<li>set insearch - to highlight text while  - jump to mark with a last change</li>riting - also TAB works as autocomplete</li>
 </ul>
 <li>if you have multiple windows, <span class="code-key">CTRL+W T</span> will place current windows into separate tab</li>
 <li><span class="code-cmd">:tab help</span> to have a full page help in a different tab</li>
 <li>:set SOMETHING? - will answer SOMETHING or noSOMETHING; like :set number?</li>
 <li>:set SOMETHING - turns ON feature SOMETHING</li>
 <li>:set noSOMETHING - turns OFF feature SOMETHING</li>
+<li>:set makeDefault&amp; - &amp; suffixed restores default value</li>
 <li>:scriptnames - lists ALL the sourced scripts</li>
 <li>CTRL + C or ESC - back to NORMAL mode from INSERT mode</li>
 <li>CTRL + O - back to NORMAL - execute command (i.e. type :something) - get back to INSERT</li>
 <ul>
   <li>CTRL+I / CTRL+O (figure I/O are next to each other on keyboard) shuffles forward/backward via cursor movement</li>
-  <li>CTRL+I = &lt;TAB&gt; ; CTRL+O = &lt;SHIFT+TAB&gt; 
+  <li>note:CTRL+I = &lt;TAB&gt;; 
 </ul>
 <li>CTRL + D / CTRL + T - shift line by 1 tab left/right</li>
 <li>:r <filename> - insert content of file name at the cursor position; try <span class="code-cmd">:r /etc/hosts</span> </li>
@@ -58,6 +59,15 @@ gather them all into a single place.
   </ul>
 </li>
 <li>z<ENTER> - in NORMAL - redraws window with current line near top; check 'set scrolloff?' for number of line from top</li>
+<li>pasting from system clipboard is via "*p (i.e. double quote ; star ; p ) - further reading :help clipboard</li>
+<li>Place with bundled plugins : $VIMRUNTIME/runtime/pack/dist/opt </li>
+<li>:h usr_05.txt -- few words about bundled plugins + :h local-additions + :h load-plugins + :h vimball + :h getscript</li>a
+<li>ALL the options are visible under :options ; there while hovering over option + ENTER you can toggle on/off then<li>
+<li>:set list - toggle whitespace characters</li>
+<li>:3new - 3 - means the number of lines; :new is a command for new window, it works the same for :split filename</li>
+<li>about macros - usr_10.txt</li>
+<li>q: - interactive history</li>
+<li>fold: zo/zc/zf - create</li>
 </ul>
 
 <h3>Navigation</h3>
@@ -68,11 +78,17 @@ gather them all into a single place.
 <li>:(colon) - start typing command (from NORMAL mode)</li>
 <li>CTRL + ] - follow link</li>
 <li>CTRL + O - move back to previous cursor position</li>
-<li>CTRL + T - move back on TAG stack (it will jump at most to your first CTRL+] )</li>
+<li>CTRL + T - move back on TAG stack (it will jump at most to your first CTRL+] ), check tags stack using :tags</li>
 <li>once mouse enabled <i>:set mouse=a</i> ; double click follows link; CTRL+right click - move back</li>
 <li>CTRL + D - in middle of typing command, to show possible matching values (similar to using TAB)</li>
 <li>:cnext / :copen - shuffle through errors/tooltips</li>
 <li>CTRL+D(down) - CTRL+U(up) - scrolling - better than pageup/pagedown as it makes it less jumpy</li>
+<li>in NORMAL mode - m&lt;letter&gt; sets mark; jump to mark is by `&lt;letter&gt;</li>
+<li>upper-case letters are global marks working across files</li>
+<li>`. - jump to mark with a last change</li>
+<li>:noremap ; :unmap; <Nop> - noremap, will not use values as aliases; unmap - clears; <Nop> is for empty op</li>
+<li>:command - list all the commands</li>
+<li>An autocommand is a command that is executed automatically in response to some event</li>
 </ul>
 
 <h3>Editing (in normal mode)</h3>
@@ -111,6 +127,8 @@ gather them all into a single place.
 <ul>
 <li>VIMRUNTIME - path to a folder with all initial scripts with defaults</li>
 <li>VIMINIT - value is a first command executed by vim - like 'source PATH.TO.VIM.RC</li>
+<li>VIM - the path to a 'global' vim dir where vimrc can be stored</li>
+<li>note: there are also env variables $MYVIMDIR and $MYVIMRC, but these are created inside already loaded vim during its config discovery, see :help starting.txt</li>
 </ul>
 
 <h3>Files</h3>
@@ -122,6 +140,7 @@ gather them all into a single place.
 <h3>Commands/names</h3>
 <ul>
 <li>:source - it includes content of a file and execute every command as if they were typed manually</li>
+<li>:packadd! - loads plugin
 </ul>
 
 <h3>Help related</h3>

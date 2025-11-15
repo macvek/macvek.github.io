@@ -74,7 +74,10 @@ Otherwise it try to load content from <span class="code-path">/usr/local/vim</sp
 <p>
 Last step is to create a <span class="code-path">local</span> folder and place there a an empty <span class="code-path">vimrc</span> file.
 <p>
-My command looks now like this: <span class="code-bash">VIMINIT="source $(pwd)/local/vimrc" VIMRUNTIME=$(pwd)/runtime src/vim</span>. 
+My command looks now like this: <span class="code-bash">VIM="$(pwd)/local" VIMRUNTIME=$(pwd)/runtime src/vim</span>.
+<p>By default vimrc is being looked inside $VIM folder; you can check all folders by running :version command
+<p>(note: I used to use $VIMINIT command, but then I found $VIM as a ultimate override of a vimrc dir)
+<p>
 I execute from a source code directory. Vim starts with a default prompt.
 To test if local file was correctly loaded, I simply insert incorrect command, literally rubish like asd123asd123 and check if it starts with
 an error.
@@ -103,7 +106,7 @@ One of the things I totally forgot how to do, was all about macros and handling 
 During browsing of a help / tutorial I've found an example vimrc file under <span class="code-path">runtime/vimrc-example.vim</span>. 
 I've copied it to my <span class="code-path">local/vimrc</span> and this was my starting point.
 <p>
-<i>Next opening of vim shows that it is sourced by displaying help with colored text + mouse enabled</i>
+<i>Next opening of vim shows that it is sourced by displaying help with colored text</i>
 
 <p>
 
