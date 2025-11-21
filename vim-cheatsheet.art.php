@@ -9,7 +9,7 @@
 
 <div class="section">
 <?= heading() ?>
-<h3>Summary of what I find most useful</h3>
+<h3>Summary of shortcuts and topics</h3>
 <p>
 VIM has a number of environment variables, lookup paths and concepts which are spread across multiple documents. The point of this article is to 
 gather them all into a single place.
@@ -147,6 +147,7 @@ gather them all into a single place.
 <li><code>:help usr_toc.txt</code> - table of content for a manual, good place to start navigation from</li>
 <li><code>:help usr_32.txt</code> - manual about undo/redo tree</li> 
 </ul>
+
 <h3>Copy/Pasting - i.e. delete, yank, put</h3>
 <ul>
 <li><code>v</code> - turn on VISUAL mode, to select text</li>
@@ -158,13 +159,6 @@ gather them all into a single place.
 <li><code>"&lt;char&gt;</code> - like "a - select &lt;char&gt; registry - like registry 'a'</li>
 <li><code>:reg</code> - show content of all registries</li>
 </ul>
-
-<h3>Topics to figure</h3>
-<ul>
-<li>:help channel-functions and :help channel-use</li>
-</ul>
-<p>
-
 
 </div>
 </body>

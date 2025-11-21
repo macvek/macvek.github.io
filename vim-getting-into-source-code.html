@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<title>VIM - getting into source code</title>
+<title>VIM - getting into source code #1</title>
 <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
@@ -12,14 +12,14 @@
 <div class="toc">
   <ul>
   <li><a href="index.html"><i>home</i></a></li>
-    <li><a href="vim-getting-into-source-code.html">VIM - getting into source code</a> <i>10.11.2025</i></li>
-    <li><a href="vim-all-conventions.html">VIM - all conventions</a> <i>10.11.2025</i></li>
+    <li><a href="vim-cheatsheet.html">VIM - cheatsheet</a> <i>21.11.2025</i></li>
+    <li><a href="vim-getting-into-source-code.html">VIM - getting into source code #1</a> <i>21.11.2025</i></li>
   </ul>
 </div>
 
 <div class="section">
 <div class="heading">
-<h1>VIM - getting into source code</h1>
+<h1>VIM - getting into source code #1</h1>
 </div>
 <h3>Why to get into vim?</h3>
 <p>
@@ -56,10 +56,10 @@ Before getting into source code, there are:
 <h3>Building it</h3>
 <p>
 Vim is using autotools setup, which in a nutshell requires calling 
-<span class="code-bash">./configure</span> and <span class="code-bash">make</span>
+<code>./configure</code> and <code>make</code>
 <p>
-The resulting binary lands in <span class="code-path">src/vim</span>. I want to focus on an isolated environment, so the task is to setup it in a way it only search for files in current repository. Therefore just after compilation, I check <span class="code-bash">git status</span>
-to make sure <span class="code-path">.gitignore</span> is correctly set and so subsequest changes will track all my experimenting with the code.
+The resulting binary lands in <code>src/vim</code>. I want to focus on an isolated environment, so the task is to setup it in a way it only search for files in current repository. Therefore just after compilation, I check <code>git status</code>
+to make sure <code>.gitignore</code> is correctly set and so subsequest changes will track all my experimenting with the code.
 <p>
 To separate changes, I create a branch 'local' and so I will have all my play tracked.
 <p>
@@ -69,12 +69,12 @@ VIMINIT is a command which will be executed as a first command during vim boot. 
 <p>
 VIMRUNTIME is another environment variable which I need to tune, 
 so vim will use a <i>runtime</i> folder from a source code.
-Otherwise it try to load content from <span class="code-path">/usr/local/vim</span>.
+Otherwise it try to load content from <code>/usr/local/vim</code>.
 
 <p>
-Last step is to create a <span class="code-path">local</span> folder and place there a an empty <span class="code-path">vimrc</span> file.
+Last step is to create a <code>local</code> folder and place there a an empty <code>vimrc</code> file.
 <p>
-My command looks now like this: <span class="code-bash">VIM="$(pwd)/local" VIMRUNTIME=$(pwd)/runtime src/vim</span>.
+My command looks now like this: <code>VIM="$(pwd)/local" VIMRUNTIME=$(pwd)/runtime src/vim</code>.
 <p>By default vimrc is being looked inside $VIM folder; you can check all folders by running :version command
 <p>(note: I used to use $VIMINIT command, but then I found $VIM as a ultimate override of a vimrc dir)
 <p>
@@ -82,7 +82,7 @@ I execute from a source code directory. Vim starts with a default prompt.
 To test if local file was correctly loaded, I simply insert incorrect command, literally rubish like asd123asd123 and check if it starts with
 an error.
 <p>
-Once I confirmed that both VIMINIT nad VIMRUNTIME are correctly loaded, I pack it all into a <span class="code-path">local/vim</span> script:
+Once I confirmed that both VIMINIT nad VIMRUNTIME are correctly loaded, I pack it all into a <code>local/vim</code> script:
 <pre class="code-bash">
 #!/bin/sh
 export VIMINIT="source $(pwd)/local/vimrc"
@@ -100,11 +100,12 @@ Experience was strange, as I already knew how to navigate, switch windows etc. S
 and to figure how little piece of functionalities I actually use every day.
 <p>
 One of the things I totally forgot how to do, was all about macros and handling copy/paste, which I always had replaced with clipboard provider.
-<p><b>note:</b> at this point I started writing separate text with 'all vim conventions' to gather all the conventions vim has
+<p><b>note:</b> at this point I started writing separate text with <a href="vim-cheatsheet.html">VIM - cheatsheet</a>
+ to gather all the conventions vim has
 <p>
 
-During browsing of a help / tutorial I've found an example vimrc file under <span class="code-path">runtime/vimrc-example.vim</span>. 
-I've copied it to my <span class="code-path">local/vimrc</span> and this was my starting point.
+During browsing of a help / tutorial I've found an example vimrc file under <code>runtime/vimrc-example.vim</code>. 
+I've copied it to my <code>local/vimrc</code> and this was my starting point.
 <p>
 <i>Next opening of vim shows that it is sourced by displaying help with colored text</i>
 
@@ -112,8 +113,9 @@ I've copied it to my <span class="code-path">local/vimrc</span> and this was my 
 (for 2 weeks I've paused working on this content to figure out what vim offers)
 </p>
 
-<p>
 
+<p>
+(to be concluded with how to make some vimscript workbench, so a scripting can happen)
 <hr/>
 
 </div>
