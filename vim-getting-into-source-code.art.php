@@ -97,11 +97,13 @@ I've copied it to my <span class="code-path">local/vimrc</span> and this was my 
 <i>Next opening of vim shows that it is sourced by displaying help with colored text</i>
 
 <p>
+(for 2 weeks I've paused working on this content to figure out what vim offers)
+</p>
 
-
+<p>
 
 <hr/>
-(work in progress)
+
 </div>
 
 </div>

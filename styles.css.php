@@ -25,6 +25,10 @@ body {
   line-height:1.8;
 }
 
+code {
+  color: #ffffff;
+}
+
 #main {
   min-width:800px;
   max-width:50%;
